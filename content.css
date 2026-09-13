@@ -1,0 +1,9 @@
+/* AnimeRuka: hide known ad groups before their images finish loading. */
+[id^="ad-group-"] {
+  display: none !important;
+}
+
+/* JS removes this wrapper completely after insertion to close the empty gap. */
+.code-block:has(> [id^="ad-group-"]) {
+  display: none !important;
+}

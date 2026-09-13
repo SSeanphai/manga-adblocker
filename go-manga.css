@@ -1,0 +1,9 @@
+/* Go Manga: banner groups and desktop/mobile floating gambling ads. */
+.center_gomangaza,
+.center_gomanga,
+.center_gomangasolo,
+#sticky-bottom,
+#sticky-bottom2,
+#sticky-bottom3 {
+  display: none !important;
+}

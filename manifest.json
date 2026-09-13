@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Manga Sites Ad Cleaner",
+  "version": "1.3.0",
+  "description": "ลบบล็อกโฆษณาบน AnimeRuka, SerieDayz, Dark Manga และ Go Manga โดยอัตโนมัติ",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://animeruka.com/*",
+        "https://www.animeruka.com/*"
+      ],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://seriedayz.com/*",
+        "https://www.seriedayz.com/*"
+      ],
+      "css": ["seriedayz.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://dark-manga.com/*",
+        "https://www.dark-manga.com/*"
+      ],
+      "css": ["dark-manga.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://go-manga.com/*",
+        "https://www.go-manga.com/*"
+      ],
+      "css": ["go-manga.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+/* Dark Manga: banner groups and desktop/mobile floating gambling ads. */
+.center_darkmangaza,
+.center_darkmanga,
+.center_darkmangasolo,
+#sticky-bottom,
+#sticky-bottom2,
+#sticky-bottom3 {
+  display: none !important;
+}

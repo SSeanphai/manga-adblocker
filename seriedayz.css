@@ -1,0 +1,8 @@
+/* SerieDayz: exact ad containers verified around the series player. */
+aside.ad,
+div.adcen,
+div.adhl,
+div.adl,
+div.adrg {
+  display: none !important;
+}
