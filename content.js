@@ -37,6 +37,17 @@
         "#sticky-bottom3"
       ].join(", "),
       getRemovalTarget: (element) => element
+    },
+    "nano-manga.com": {
+      // #block-5 is the dedicated banner widget. Reader pages use
+      // .reading-content, which is deliberately outside this selector.
+      selector: [
+        "#block-5",
+        "#sticky-ads-bottom",
+        "#sticky-ads-bottom2",
+        "#sticky-ads-bottom3"
+      ].join(", "),
+      getRemovalTarget: (element) => element
     }
   };
 

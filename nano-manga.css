@@ -1,0 +1,7 @@
+/* Nano Manga: dedicated banner widget and desktop/mobile floating ads. */
+#block-5,
+#sticky-ads-bottom,
+#sticky-ads-bottom2,
+#sticky-ads-bottom3 {
+  display: none !important;
+}

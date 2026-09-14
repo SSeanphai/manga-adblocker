@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Manga Sites Ad Cleaner
 // @namespace    https://github.com/SSeanphai/manga-adblocker
-// @version      1.0.0
+// @version      1.1.0
 // @description  Remove verified ad containers from supported Thai manga sites.
 // @author       SSeanphai
 // @match        https://animeruka.com/*
@@ -12,6 +12,8 @@
 // @match        https://www.dark-manga.com/*
 // @match        https://go-manga.com/*
 // @match        https://www.go-manga.com/*
+// @match        https://nano-manga.com/*
+// @match        https://www.nano-manga.com/*
 // @run-at       document-start
 // @grant        none
 // @downloadURL  https://raw.githubusercontent.com/SSeanphai/manga-adblocker/main/manga-adblocker.user.js
@@ -51,6 +53,15 @@
         "#sticky-bottom",
         "#sticky-bottom2",
         "#sticky-bottom3"
+      ].join(", "),
+      getRemovalTarget: (element) => element
+    },
+    "nano-manga.com": {
+      selector: [
+        "#block-5",
+        "#sticky-ads-bottom",
+        "#sticky-ads-bottom2",
+        "#sticky-ads-bottom3"
       ].join(", "),
       getRemovalTarget: (element) => element
     }
