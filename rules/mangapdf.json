@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "blockadsnot.com",
+        "c.adsco.re"
+      ],
+      "initiatorDomains": [
+        "mangapdf-online.com"
+      ],
+      "resourceTypes": [
+        "script"
+      ]
+    }
+  }
+]
