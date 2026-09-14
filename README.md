@@ -47,6 +47,8 @@ Chrome/Edge extension แบบ Manifest V3 สำหรับลบบล็อ
 - เฝ้าตรวจโฆษณาที่ถูก inject ภายหลังด้วย `MutationObserver`
 - บล็อก network request ของ pop-under scripts บน MangaPDF Online ด้วยกฎ
   `declarativeNetRequest` ที่จำกัดเฉพาะโดเมนต้นทางนี้
+- ป้องกัน `window.open()` ใน JavaScript world เดียวกับหน้า MangaPDF และบล็อก
+  top-level navigation ที่เว็บพยายามเปิดไปยังโดเมนโฆษณาแบบสุ่ม
 - ไม่อ่านหรือส่งข้อมูลการท่องเว็บออกไปภายนอก
 
 ## Selector ที่ตรวจจากเว็บจริง
@@ -77,7 +79,9 @@ widget โฆษณา `#block-5` และโฆษณาลอย โดยไ
 MangaPDF Online ใช้ `.gridshow-post-ad-two` กับรายการ Special Manga จริง
 Extension จึงไม่ลบ class นี้ และไม่แตะ `.entry-content` หรือลิงก์ดาวน์โหลด
 
-MangaPDF Online โหลด pop-under scripts จาก `blockadsnot.com` และ `c.adsco.re`
-Extension จึงบล็อกเฉพาะ script requests จากสองโดเมนนี้เมื่อมีต้นทางจาก
-`mangapdf-online.com` เท่านั้น ส่วน iOS Userscript จะปฏิเสธ `window.open()` ที่
-ชี้ไปโดเมนอื่น แต่ยังอนุญาต MangaPDF และ Google Drive สำหรับการดาวน์โหลด
+MangaPDF Online โหลด pop-under scripts จาก `blockadsnot.com`, `c.adsco.re`
+และอาจหมุนปลายทางไปยังโดเมนสุ่ม Extension จึงใช้สองชั้น: บล็อก script requests
+ที่ยืนยันแล้ว และบล็อกการเปิด top-level page ออกนอก allowlist เมื่อต้นทางคือ
+`mangapdf-online.com` พร้อมรัน popup guard ใน `MAIN` world ของหน้าเว็บ
+ทั้ง Extension และ iOS Userscript ยังอนุญาต MangaPDF และ Google Drive สำหรับ
+การดาวน์โหลด

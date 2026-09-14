@@ -17,5 +17,41 @@
         "script"
       ]
     }
+  },
+  {
+    "id": 2,
+    "priority": 10,
+    "action": {
+      "type": "allow"
+    },
+    "condition": {
+      "requestDomains": [
+        "mangapdf-online.com",
+        "dl.mangapdf-online.com",
+        "drive.google.com",
+        "docs.google.com"
+      ],
+      "initiatorDomains": [
+        "mangapdf-online.com"
+      ],
+      "resourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "initiatorDomains": [
+        "mangapdf-online.com"
+      ],
+      "resourceTypes": [
+        "main_frame"
+      ]
+    }
   }
 ]

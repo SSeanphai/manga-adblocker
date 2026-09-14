@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Manga Sites Ad Cleaner",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "ลบบล็อกโฆษณาบนเว็บมังงะที่รองรับ รวมถึง AnimeRuka, Nano Manga และ MangaPDF Online",
   "permissions": ["declarativeNetRequest"],
   "declarative_net_request": {
@@ -14,6 +14,15 @@
     ]
   },
   "content_scripts": [
+    {
+      "matches": [
+        "https://mangapdf-online.com/*",
+        "https://www.mangapdf-online.com/*"
+      ],
+      "js": ["mangapdf-popup-guard.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
     {
       "matches": [
         "https://animeruka.com/*",

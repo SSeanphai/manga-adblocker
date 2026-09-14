@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Manga Sites Ad Cleaner
 // @namespace    https://github.com/SSeanphai/manga-adblocker
-// @version      1.3.0
+// @version      1.4.0
 // @description  Remove verified ad containers from supported Thai manga sites.
 // @author       SSeanphai
 // @match        https://animeruka.com/*
@@ -85,7 +85,6 @@
   }
 
   if (hostname === "mangapdf-online.com") {
-    const nativeWindowOpen = window.open.bind(window);
     const allowedPopupHosts = new Set([
       "mangapdf-online.com",
       "dl.mangapdf-online.com",
@@ -95,7 +94,7 @@
 
     // MangaPDF's ad network opens unrelated pop-under tabs from normal clicks.
     // Keep scripted windows only for the site's own download flow and GDrive.
-    window.open = (url, target, features) => {
+    const guardedWindowOpen = (url, target, features) => {
       if (!url) {
         return null;
       }
@@ -112,8 +111,45 @@
         return null;
       }
 
-      return nativeWindowOpen(url, target, features);
+      return Reflect.apply(nativeWindowOpen, window, [url, target, features]);
     };
+
+    const nativeWindowOpen = window.open;
+
+    try {
+      Object.defineProperty(window, "open", {
+        value: guardedWindowOpen,
+        writable: false,
+        configurable: false
+      });
+    } catch {
+      window.open = guardedWindowOpen;
+    }
+
+    document.addEventListener("click", (event) => {
+      const link = event.target instanceof Element
+        ? event.target.closest("a[href]")
+        : null;
+
+      if (!link || !link.target || link.target.toLowerCase() !== "_blank") {
+        return;
+      }
+
+      let destination;
+
+      try {
+        destination = new URL(link.href, location.href);
+      } catch {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return;
+      }
+
+      if (!allowedPopupHosts.has(destination.hostname)) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    }, true);
   }
 
   const style = document.createElement("style");
