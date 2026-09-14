@@ -4,6 +4,21 @@ Chrome/Edge extension แบบ Manifest V3 สำหรับลบบล็อ
 `animeruka.com`, `seriedayz.com`, `dark-manga.com` และ `go-manga.com`
 โดยอัตโนมัติ
 
+## วิธีติดตั้งฟรีบน iPhone/iPad
+
+รองรับ Safari บน iOS/iPadOS 15.1 ขึ้นไปผ่านแอปโอเพนซอร์ส **Userscripts**
+
+1. ติดตั้ง [Userscripts](https://apps.apple.com/app/userscripts/id1463298887) จาก App Store
+2. เปิดแอป Userscripts หนึ่งครั้ง เพื่อสร้างโฟลเดอร์เก็บสคริปต์
+3. ไปที่ **Settings > Apps > Safari > Extensions > Userscripts**
+4. เปิดส่วนขยายและเลือก **Always Allow** สำหรับเว็บไซต์ทั้งหมด
+5. เปิดลิงก์ [ติดตั้ง Manga Sites Ad Cleaner](https://raw.githubusercontent.com/SSeanphai/manga-adblocker/main/manga-adblocker.user.js) ด้วย Safari
+6. แตะไอคอน Extensions ใน Safari > **Userscripts** > ยืนยันการติดตั้ง
+7. Reload หน้าเว็บมังงะหนึ่งครั้ง
+
+วิธีนี้ใช้ฟรี ไม่ต้องสมัครสมาชิก และทำงานเฉพาะ Safari โดยไฟล์
+`manga-adblocker.user.js` จะตรวจเฉพาะ 4 โดเมนที่รองรับ
+
 ## วิธีติดตั้งใน Chrome
 
 1. แตกไฟล์ ZIP ก่อน (ห้ามเลือกไฟล์ ZIP โดยตรง)
