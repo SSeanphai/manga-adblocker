@@ -2,7 +2,7 @@
 
 Chrome/Edge extension แบบ Manifest V3 สำหรับลบบล็อกโฆษณาบน
 `animeruka.com`, `seriedayz.com`, `dark-manga.com`, `go-manga.com` และ
-`nano-manga.com`
+`nano-manga.com` และ `mangapdf-online.com`
 โดยอัตโนมัติ
 
 ## วิธีติดตั้งฟรีบน iPhone/iPad
@@ -18,7 +18,7 @@ Chrome/Edge extension แบบ Manifest V3 สำหรับลบบล็อ
 7. Reload หน้าเว็บมังงะหนึ่งครั้ง
 
 วิธีนี้ใช้ฟรี ไม่ต้องสมัครสมาชิก และทำงานเฉพาะ Safari โดยไฟล์
-`manga-adblocker.user.js` จะตรวจเฉพาะ 5 โดเมนที่รองรับ
+`manga-adblocker.user.js` จะตรวจเฉพาะ 6 โดเมนที่รองรับ
 
 ## วิธีติดตั้งใน Chrome
 
@@ -27,7 +27,7 @@ Chrome/Edge extension แบบ Manifest V3 สำหรับลบบล็อ
 3. เปิด **Developer mode** มุมขวาบน
 4. กด **Load unpacked**
 5. เลือกโฟลเดอร์ `animeruka-ad-cleaner`
-6. Reload หน้า AnimeRuka, SerieDayz, Dark Manga, Go Manga หรือ Nano Manga ที่เปิดอยู่หนึ่งครั้ง
+6. Reload เว็บมังงะที่รองรับและเปิดค้างอยู่หนึ่งครั้ง
 
 ## วิธีติดตั้งใน Microsoft Edge
 
@@ -36,12 +36,12 @@ Chrome/Edge extension แบบ Manifest V3 สำหรับลบบล็อ
 3. เปิด **Developer mode**
 4. กด **Load unpacked**
 5. เลือกโฟลเดอร์ `animeruka-ad-cleaner`
-6. Reload หน้า AnimeRuka, SerieDayz, Dark Manga, Go Manga หรือ Nano Manga ที่เปิดอยู่หนึ่งครั้ง
+6. Reload เว็บมังงะที่รองรับและเปิดค้างอยู่หนึ่งครั้ง
 
 ## ขอบเขตการทำงาน
 
-- ทำงานเฉพาะโดเมน AnimeRuka, SerieDayz, Dark Manga, Go Manga และ Nano Manga
-  ทั้งแบบมีและไม่มี `www.`
+- ทำงานเฉพาะโดเมน AnimeRuka, SerieDayz, Dark Manga, Go Manga, Nano Manga
+  และ MangaPDF Online ทั้งแบบมีและไม่มี `www.`
 - ซ่อนโฆษณาตั้งแต่เริ่มโหลด เพื่อลดอาการภาพโฆษณากะพริบ
 - ลบ element และ wrapper ของโฆษณาออกจาก DOM
 - เฝ้าตรวจโฆษณาที่ถูก inject ภายหลังด้วย `MutationObserver`
@@ -57,6 +57,8 @@ Chrome/Edge extension แบบ Manifest V3 สำหรับลบบล็อ
   `#sticky-bottom`, `#sticky-bottom2`, `#sticky-bottom3`
 - Nano Manga: `#block-5`, `#sticky-ads-bottom`, `#sticky-ads-bottom2`,
   `#sticky-ads-bottom3`
+- MangaPDF Online: `#custom_html-3` และ fallback เฉพาะ iframe A-ADS หมายเลข
+  `2062619`
 
 SerieDayz ใช้ `.adlf` ซ้ำทั้งกับโฆษณาและเมนูหมวดหมู่ Extension จึงตั้งใจไม่ลบ
 `.adlf` ทั้งก้อน เพื่อไม่ให้เนื้อหาและ navigation หายไปด้วย
@@ -69,3 +71,6 @@ Go Manga ใช้ `.entry-content` สำหรับภาพหน้าม�
 
 Nano Manga ใช้ `.reading-content` สำหรับภาพหน้ามังงะ Extension จึงลบเฉพาะ
 widget โฆษณา `#block-5` และโฆษณาลอย โดยไม่แตะภาพมังงะหรือปุ่มเปลี่ยนตอน
+
+MangaPDF Online ใช้ `.gridshow-post-ad-two` กับรายการ Special Manga จริง
+Extension จึงไม่ลบ class นี้ และไม่แตะ `.entry-content` หรือลิงก์ดาวน์โหลด

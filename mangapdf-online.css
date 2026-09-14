@@ -1,0 +1,5 @@
+/* MangaPDF Online: dedicated A-ADS widget and its exact iframe fallback. */
+#custom_html-3,
+iframe[data-aa="2062619"][src*="ad.a-ads.com"] {
+  display: none !important;
+}

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Manga Sites Ad Cleaner",
-  "version": "1.4.0",
-  "description": "ลบบล็อกโฆษณาบน AnimeRuka, SerieDayz, Dark Manga, Go Manga และ Nano Manga โดยอัตโนมัติ",
+  "version": "1.5.0",
+  "description": "ลบบล็อกโฆษณาบนเว็บมังงะที่รองรับ รวมถึง AnimeRuka, Nano Manga และ MangaPDF Online",
   "content_scripts": [
     {
       "matches": [
@@ -46,6 +46,15 @@
         "https://www.nano-manga.com/*"
       ],
       "css": ["nano-manga.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://mangapdf-online.com/*",
+        "https://www.mangapdf-online.com/*"
+      ],
+      "css": ["mangapdf-online.css"],
       "js": ["content.js"],
       "run_at": "document_start"
     }

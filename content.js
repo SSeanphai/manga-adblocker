@@ -48,6 +48,16 @@
         "#sticky-ads-bottom3"
       ].join(", "),
       getRemovalTarget: (element) => element
+    },
+    "mangapdf-online.com": {
+      // The dedicated custom HTML widget contains the A-ADS banner. Keep
+      // .gridshow-post-ad-two because it contains real Special Manga links.
+      selector: [
+        "#custom_html-3",
+        'iframe[data-aa="2062619"][src*="ad.a-ads.com"]'
+      ].join(", "),
+      getRemovalTarget: (element) =>
+        element.closest(".widget_custom_html") || element
     }
   };
 
